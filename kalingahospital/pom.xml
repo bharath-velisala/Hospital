@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mindtree</groupId>
-	<artifactId>employeemanagement</artifactId>
+	<artifactId>kalingahospital</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>employeemanagement</name>
