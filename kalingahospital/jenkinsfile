@@ -44,7 +44,7 @@ sh 'mvn sonar:sonar'
     def downloadSpec = """{
     "files": [
     {
-      "pattern": "hospital/*.jar",
+      "pattern": "sample/*.jar",
       "target": "/home/mtadminnuvepro/artifacts/"
      
     }
