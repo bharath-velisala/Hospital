@@ -29,18 +29,18 @@ sh 'mvn sonar:sonar'
    sh label: '', script: 'mvn package'
   }
   stage('Jfrog Artifacory Upload') {
-        def server= Artifactory.server 'Artifactory'
+        def server= Artifactory.server 'art-1'
                     def uploadSpec= """{
                         "files": [{
                         "pattern": "/root/.jenkins/workspace/kalinga_hospital/kalingahospital/target/*.jar",
-                        "target": "hospital"}]
+                        "target": "sample"}]
                     }"""
         server.upload(uploadSpec)
        
         }
     
     stage('Jfrog Artifactory download'){
-    def server= Artifactory.server 'Artifactory'
+    def server= Artifactory.server 'art-1'
     def downloadSpec = """{
     "files": [
     {
