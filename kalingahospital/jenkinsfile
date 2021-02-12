@@ -14,44 +14,10 @@ node {
     
  stage('Maven-Compile') {
    sh label: '', script: 'mvn compile'
-  }
- stage('Sonar Analysis'){
-withSonarQubeEnv('SonarQube')
-{ 
-sh 'mvn sonar:sonar'
-}
-}
-   stage('Maven-Test') {
-   sh label: '', script: 'mvn test'
-  }
-  
+ }
    stage('Maven-Package') {
    sh label: '', script: 'mvn package'
-  }
-  stage('Jfrog Artifacory Upload') {
-        def server= Artifactory.server 'art-1'
-                    def uploadSpec= """{
-                        "files": [{
-                        "pattern": "/root/.jenkins/workspace/kalinga_hospital/kalingahospital/target/*.jar",
-                        "target": "sample"}]
-                    }"""
-        server.upload(uploadSpec)
-       
-        }
-    
-    stage('Jfrog Artifactory download'){
-    def server= Artifactory.server 'art-1'
-    def downloadSpec = """{
-    "files": [
-    {
-      "pattern": "sample/*.jar",
-      "target": "/home/mtadminnuvepro/artifacts/"
-     
-    }
-    ]
-    }"""
-    server.download(downloadSpec)
-   
+  } 
 }
 }
-}
+
