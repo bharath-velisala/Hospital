@@ -15,9 +15,12 @@ node {
  stage('Maven-Compile') {
    sh 'mvn compile'
  }
+ stage('Maven-test'){
+   sh 'mvn test'
+  }
    stage('Maven-Package') {
    sh 'mvn package'
   } 
+  
 }
 }
-
